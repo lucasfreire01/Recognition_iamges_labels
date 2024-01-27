@@ -35,4 +35,19 @@ array([[[[ 59,  62,  63],<br>
          [109,  73,  42]],<br>
 <br>
         ...,<br>
-All datasets have this matrix each set of cords represents an image and each cord with 3 values(RGB) in the training dataset we have 50000 values, the X_train we get the shape(50000, 32, 32, 3) and in the test datasets we get 10000 values the x_test have the shape (10000, 32, 32, 3) the rest follow this rule.
+All datasets have this matrix each set of cords represents an image and each cord with 3 values(RGB) in the training dataset we have 50000 values, the X_train we get the shape(50000, 32, 32, 3) and in the test datasets we get 10000 values the x_test have the shape (10000, 32, 32, 3) the rest follow this rule. This is an example of an image in RGB<br>
+
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download1.png)<br>
+Bellow there is an example of the images and your labels.<br>
+![label_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download2.png)<br>
+
+## Pre_Processing
+### Type and grayscale
+The first thing did was transform the type of values from int to float32 because processing is more computationally cheap, next used coding in the y_train and y_test and transformed in the grayscale because images are 3 buses (R, G, B) for example (187, 222, 87) when we get a gray image in RGB will be for example(187, 187, 187) we have gray in the RGB base when all values are the same the color is gray this enables us to use 1 buses because the number is the same that is the 3 buses(R G B), bellow is an example in the gray. After we norm these values based on the white number in RGB (255). Here there is an example of grayscale.<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download3.png)<br>
+![gray_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download4.png)<br>
+### Noise_Random
+We dds random noise to a normalized grayscale training dataset (x_train_norm_gray). The noise is generated using a normal distribution with a standard deviation of 0.1. The purpose is to introduce variability into the data, aiding the model in learning to be more robust by adapting to different patterns and reducing overfitting. This technique, known as data augmentation, enhances the model's generalization capabilities without requiring additional labeled data.<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download5.png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download6.png)<br>
+
