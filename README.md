@@ -106,4 +106,39 @@ Trainable params: 1245738 (4.75 MB)<br>
 Non-trainable params: 0 (0.00 Byte)<br>
 
 ### Results
-The results aren't satisfactory but the objective is to work with this architecture. We test the variables (1 with norm grayscale, 1 with norm grayscale and random noise and the las nor grayscale and smoothed) 
+The results aren't satisfactory but the objective is to work with this architecture. We test the variables (1 with norm grayscale, 1 with norm grayscale and random noise, and the last nor grayscale and smoothed) all variables were trained with 200 epochs and a batch = 1000. below there is the result on train datasets of values just normalize and transform in grayscale.
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download8.png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download9.png)<br>
+
+Now the variables with Random Noise the result shown below just in the train datasets.
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download10.png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download11.png)<br>
+
+Finally, we have the variable Noise smoothed and that is the result in the train dataset
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download12.png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download13.png)<br>
+
+How can you see in the graphs we have a line more clean and linear now we going to see if this aspect is present in the test datasets. In the variable with normalize and transform in the grayscale have the results: Score = 66,60%
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download14.png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download15.png)<br>
+
+Variable with normalize, transform in grayscale, and noise random have this score in the test dataset: Score: 64,85%
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download16.png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download20.png)<br>
+
+This variable has normalized, transformed in grayscale and noise random(smoothed) this is the score: Score: 
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download18.png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download19.png)<br>
+
+Now we have the model and prediction for each variable so we have a relation between the true value and predicted value:<br>
+**variable with normalize and transform in grayscale**
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download21.png)<br>
+
+**Variable with normalize, transform in grayscale, and noise random.**
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download22.png)<br>
+
+**Variable with normalize, transform in grayscale, noise random, and smoothed.**
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download23.png)<br>
+
+## Conclusion
+I Liked so much to work with the GoogleNet architecture result so that I wasn't satisfied but the objective is to work and study this architecture, there are some ways to improve the score maybe replacing the architecture, using more pre-processing tools, doing a reverse way we did and reduce the random I think a good way is to use machine learning models to do it and finally to put more neurons in each layer in the neural networking model. If you arrived here thank you so much for seeing my project.
