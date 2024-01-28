@@ -43,7 +43,7 @@ Bellow there is an example of the images and your labels.<br>
 
 ## Pre_Processing
 ### Type and grayscale
-The first thing did was transform the type of values from int to float32 because processing is more computationally cheap, next used coding in the y_train and y_test and transformed in the grayscale because images are 3 buses (R, G, B) for example (187, 222, 87) when we get a gray image in RGB will be for example(187, 187, 187) we have gray in the RGB base when all values are the same the color is gray this enables us to use 1 buses because the number is the same that is the 3 buses(R G B), bellow is an example in the gray. After we norm these values based on the white number in RGB (255). Here there is an example of grayscale.<br>
+The first thing did was transform the type of values from int to float32 because processing is more computationally cheap, normalization of these variables based in white(255)next used coding in the y_train and y_test and transformed in the grayscale, because images are 3 buses (R, G, B) for example (187, 222, 87) when we get a gray image in RGB, will be for example(187, 187, 187) we have gray in the RGB base when all values are the same the color is gray this enables us to use 1 buses because the number is the same that is the 3 buses(R G B), bellow is an example in the gray. After we norm these values based on the white number in RGB (255). Here there is an example of grayscale.<br>
 ![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download3.png)<br>
 ![gray_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download4.png)<br>
 ### Noise_Random
@@ -51,3 +51,59 @@ We dds random noise to a normalized grayscale training dataset (x_train_norm_gra
 ![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download5.png)<br>
 ![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download6.png)<br>
 
+## Model
+### Architecture
+How say we use Google Net bellow is a picture of the architecture:
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/GoogleNet-like-architecture.png)<br>
+This architecture is inception with basic with a convolution 1x1, 3x3, and 5x5 and this case uses the max pooling, other max pooling 1x1 and concatenates these variables, we concept the neural networking processing and we get this summary:
+| Layer                  | Output Shape              | Param # | Connected to               |
+|------------------------|---------------------------|---------|----------------------------|
+| input_2 (InputLayer)   | [(None, 224, 224, 3)]     | 0       |                            |
+| max_pooling2d_4         | (None, 224, 224, 3)       | 0       | input_2[0][0]              |
+| conv2d_9               | (None, 224, 224, 64)      | 256     | input_2[0][0]              |
+| conv2d_10              | (None, 224, 224, 128)     | 3584    | input_2[0][0]              |
+| conv2d_11              | (None, 224, 224, 32)      | 2432    | input_2[0][0]              |
+| conv2d_12              | (None, 224, 224, 32)      | 128     | max_pooling2d_4[0][0]      |
+| concatenate_2          | (None, 224, 224, 256)     | 0       | conv2d_9[0][0],            |
+|                        |                           |         | conv2d_10[0][0],           |
+|                        |                           |         | conv2d_11[0][0],           |
+|                        |                           |         | conv2d_12[0][0]            |
+
+After we build the architecture of neural networking final, using Conv2d as before but this time using maxpooling2d, three blocks of these layers in the last we have  the max pooling but also average global pooling to try to reduce more the dimensionality.
+
+| Layer                   | Output Shape            | Param # | Connected to               |
+|-------------------------|-------------------------|---------|----------------------------|
+| input_1 (InputLayer)    | (None, 32, 32, 1)       | 0       |                            |
+| conv2d                  | (None, 16, 16, 64)      | 3200    | input_1[0][0]              |
+| max_pooling2d           | (None, 8, 8, 64)        | 0       | conv2d[0][0]               |
+| max_pooling2d_1         | (None, 8, 8, 64)        | 0       | max_pooling2d[0][0]        |
+| conv2d_1                | (None, 8, 8, 64)        | 4160    | max_pooling2d[0][0]        |
+| conv2d_2                | (None, 8, 8, 128)       | 73856   | max_pooling2d[0][0]        |
+| conv2d_3                | (None, 8, 8, 32)        | 51232   | max_pooling2d[0][0]        |
+| conv2d_4                | (None, 8, 8, 32)        | 2080    | max_pooling2d_1[0][0]      |
+| concatenate             | (None, 8, 8, 256)       | 0       | conv2d_1[0][0],            |
+|                         |                         |         | conv2d_2[0][0],            |
+|                         |                         |         | conv2d_3[0][0],            |
+|                         |                         |         | conv2d_4[0][0]             |
+| max_pooling2d_2         | (None, 8, 8, 256)       | 0       | concatenate[0][0]          |
+| conv2d_5                | (None, 8, 8, 128)       | 32896   | concatenate[0][0]          |
+| conv2d_6                | (None, 8, 8, 192)       | 442560  | concatenate[0][0]          |
+| conv2d_7                | (None, 8, 8, 96)        | 614496  | concatenate[0][0]          |
+| conv2d_8                | (None, 8, 8, 64)        | 16448   | max_pooling2d_2[0][0]      |
+| concatenate_1           | (None, 8, 8, 480)       | 0       | conv2d_5[0][0],            |
+|                         |                         |         | conv2d_6[0][0],            |
+|                         |                         |         | conv2d_7[0][0],            |
+|                         |                         |         | conv2d_8[0][0]             |
+| max_pooling2d_3         | (None, 4, 4, 480)       | 0       | concatenate_1[0][0]        |
+| dropout                 | (None, 4, 4, 480)       | 0       | max_pooling2d_3[0][0]      |
+| global_average_pooling2d| (None, 480)             | 0       | dropout[0][0]              |
+| dropout_1               | (None, 480)             | 0       | global_average_pooling2d[0]|
+| flatten                 | (None, 480)             | 0       | dropout_1[0][0]            |
+| dense                   | (None, 10)              | 4810    | flatten[0][0]              |
+
+Total params: 1245738 (4.75 MB)<br>
+Trainable params: 1245738 (4.75 MB)<br>
+Non-trainable params: 0 (0.00 Byte)<br>
+
+### Results
+The results aren't satisfactory but the objective is to work with this architecture. We test the variables (1 with norm grayscale, 1 with norm grayscale and random noise and the las nor grayscale and smoothed) 
