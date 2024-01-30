@@ -37,24 +37,24 @@ array([[[[ 59,  62,  63],<br>
         ...,<br>
 All datasets have this matrix each set of cords represents an image and each cord with 3 values(RGB) in the training dataset we have 50000 values, the X_train we get the shape(50000, 32, 32, 3) and in the test datasets we get 10000 values the x_test have the shape (10000, 32, 32, 3) the rest follow this rule. This is an example of an image in RGB<br>
 
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download1.png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/figures/figure(1).png)<br>
 Bellow there is an example of the images and your labels.<br>
-![label_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download2.png)<br>
+![label_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/figures/figure(2).png)<br>
 
 ## Pre_Processing
 ### Type and grayscale
 The first thing did was transform the type of values from int to float32 because processing is more computationally cheap, normalization of these variables based in white(255)next used coding in the y_train and y_test and transformed in the grayscale, because images are 3 buses (R, G, B) for example (187, 222, 87) when we get a gray image in RGB, will be for example(187, 187, 187) we have gray in the RGB base when all values are the same the color is gray this enables us to use 1 buses because the number is the same that is the 3 buses(R G B), bellow is an example in the gray. After we norm these values based on the white number in RGB (255). Here there is an example of grayscale.<br>
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download3.png)<br>
-![gray_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download4.png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/figures/figure(3).png)<br>
+![gray_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/figures/figure(4).png)<br>
 ### Noise_Random
 We dds random noise to a normalized grayscale training dataset (x_train_norm_gray). The noise is generated using a normal distribution with a standard deviation of 0.1. The purpose is to introduce variability into the data, aiding the model in learning to be more robust by adapting to different patterns and reducing overfitting. This technique, known as data augmentation, enhances the model's generalization capabilities without requiring additional labeled data.<br>
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download5.png)<br>
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download6.png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/figures/figure(5).png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/figures/figure(6).png)<br>
 
 ## Model
 ### Architecture
 How say we use Google Net bellow is a picture of the architecture:
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/GoogleNet-like-architecture.png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/arquitecture/GoogleNet.png)<br>
 This architecture is inception with basic with a convolution 1x1, 3x3, and 5x5 and this case uses the max pooling, other max pooling 1x1 and concatenates these variables, we concept the neural networking processing and we get this summary:
 | Layer                  | Output Shape              | Param # | Connected to               |
 |------------------------|---------------------------|---------|----------------------------|
@@ -107,38 +107,39 @@ Non-trainable params: 0 (0.00 Byte)<br>
 
 ### Results
 The results aren't satisfactory but the objective is to work with this architecture. We test the variables (1 with norm grayscale, 1 with norm grayscale and random noise, and the last nor grayscale and smoothed) all variables were trained with 200 epochs and a batch = 1000. below there is the result on train datasets of values just normalize and transform in grayscale.
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download8.png)<br>
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download9.png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(1).png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(2).png)<br>
 
 Now the variables with Random Noise the result shown below just in the train datasets.
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download10.png)<br>
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download11.png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(3).png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(4).png)<br>
 
 Finally, we have the variable Noise smoothed and that is the result in the train dataset
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download12.png)<br>
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download13.png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(5).png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(6).png)<br>
 
 How can you see in the graphs we have a line more clean and linear now we going to see if this aspect is present in the test datasets. In the variable with normalize and transform in the grayscale have the results: Score = 66,60%
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download14.png)<br>
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download15.png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(7).png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(8).png)<br>
 
 Variable with normalize, transform in grayscale, and noise random have this score in the test dataset: Score: 64,85%
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download16.png)<br>
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download20.png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(9).png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(10).png)<br>
 
 This variable has normalized, transformed in grayscale and noise random(smoothed) this is the score: Score: 
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download18.png)<br>
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download19.png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(11).png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(12).png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(13).png)<br>
 
 Now we have the model and prediction for each variable so we have a relation between the true value and predicted value:<br>
 **variable with normalize and transform in grayscale**
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download21.png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/figures/figure(6).png)<br>
 
 **Variable with normalize, transform in grayscale, and noise random.**
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download22.png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/figures/figure(6).png)<br>
 
 **Variable with normalize, transform in grayscale, noise random, and smoothed.**
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/download23.png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/figures/figure(6).png)<br>
 
 ## Conclusion
 I Liked so much to work with the GoogleNet architecture result so that I wasn't satisfied but the objective is to work and study this architecture, there are some ways to improve the score maybe replacing the architecture, using more pre-processing tools, doing a reverse way we did and reduce the random I think a good way is to use machine learning models to do it and finally to put more neurons in each layer in the neural networking model. If you arrived here thank you so much for seeing my project.
