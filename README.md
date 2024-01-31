@@ -110,7 +110,7 @@ The results aren't satisfactory but the objective is to work with this architect
 ![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(1).png)<br>
 ![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(2).png)<br>
 
-Now the variables with Random Noise the result shown below just in the train datasets.
+Now the variables with Random Noise the result shown below just in the train datasets.<br>
 ![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(3).png)<br>
 ![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(4).png)<br>
 
@@ -132,13 +132,13 @@ This variable has normalized, transformed in grayscale and noise random(smoothed
 ![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(13).png)<br>
 
 Now we have the model and prediction for each variable so we have a relation between the true value and predicted value:<br>
-**variable with normalize and transform in grayscale**
+**variable with normalize and transform in grayscale**<br>
 ![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/figures/figure(6).png)<br>
 
-**Variable with normalize, transform in grayscale, and noise random.**
+**Variable with normalize, transform in grayscale, and noise random.**<br>
 ![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/figures/figure(6).png)<br>
 
-**Variable with normalize, transform in grayscale, noise random, and smoothed.**
+**Variable with normalize, transform in grayscale, noise random, and smoothed.**<br>
 ![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/figures/figure(6).png)<br>
 
 ## Conclusion
