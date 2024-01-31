@@ -118,15 +118,15 @@ Finally, we have the variable Noise smoothed and that is the result in the train
 ![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(5).png)<br>
 ![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(6).png)<br>
 
-How can you see in the graphs we have a line more clean and linear now we going to see if this aspect is present in the test datasets. In the variable with normalize and transform in the grayscale have the results: Score = 66,60%
+How can you see in the graphs we have a line more clean and linear now we going to see if this aspect is present in the test datasets. In the variable with normalize and transform in the grayscale have the results: Score = 70,12%
 ![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(7).png)<br>
 ![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(8).png)<br>
 
-Variable with normalize, transform in grayscale, and noise random have this score in the test dataset: Score: 64,85%
+Variable with normalize, transform in grayscale, and noise random have this score in the test dataset: Score: 65,13%
 ![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(9).png)<br>
 ![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(10).png)<br>
 
-This variable has normalized, transformed in grayscale and noise random(smoothed) this is the score: Score: 
+This variable has normalized, transformed in grayscale and noise random(smoothed) this is the score: Score: 38,08%
 ![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(11).png)<br>
 ![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(12).png)<br>
 ![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(13).png)<br>
