@@ -106,30 +106,29 @@ Trainable params: 1245738 (4.75 MB)<br>
 Non-trainable params: 0 (0.00 Byte)<br>
 
 ### Results
-The results aren't satisfactory but the objective is to work with this architecture. We test the variables (1 with norm grayscale, 1 with norm grayscale and random noise, and the last nor grayscale and smoothed) all variables were trained with 200 epochs and a batch = 1000. below there is the result on train datasets of values just normalize and transform in grayscale.
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(1).png)<br>
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(2).png)<br>
+The results aren't satisfactory but the objective is to work with this architecture. We test the variables (1 with norm grayscale, 1 with norm grayscale and random noise, and the last nor grayscale and smoothed) all variables were trained using the earlystops callbacks. below there is the result on train datasets of values just normalize and transform in grayscale.
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/download%20up%20gray%20norm%20accuracy%20train.png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/download%20up%20gray%20norm%20loss%20train.png)<br>
 
 Now the variables with Random Noise the result shown below just in the train datasets.<br>
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(3).png)<br>
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(4).png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/download%20up%20gray%20norm%20noise%20accuracy%20train.png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/download%20up%20gray%20norm%20noise%20loss%20train.png)<br>
 
 Finally, we have the variable Noise smoothed and that is the result in the train dataset
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(5).png)<br>
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(6).png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/download%20up%20gray%20norm%20smoothad%20accuracy%20train.png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/download%20up%20gray%20norm%20smoothad%20loss.png)<br>
 
 How can you see in the graphs we have a line more clean and linear now we going to see if this aspect is present in the test datasets. In the variable with normalize and transform in the grayscale have the results: Score = 70,12%
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(7).png)<br>
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(8).png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/download%20up%20gray%20norm%20accuracy.png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/download%20up%20gray%20norm%20noise%20loss.png)<br>
 
 Variable with normalize, transform in grayscale, and noise random have this score in the test dataset: Score: 65,13%
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(9).png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/download%20up%20gray%20norm%20noise%20accuracy.png)<br>
 ![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(10).png)<br>
 
 This variable has normalized, transformed in grayscale and noise random(smoothed) this is the score: Score: 38,08%
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(11).png)<br>
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(12).png)<br>
-![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/performance(13).png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/download%20up%20gray%20norm%20smoothad%20accuracy.png)<br>
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/download%20up%20gray%20norm%20%20smoothad%20loss.png)<br>
 
 Now we have the model and prediction for each variable so we have a relation between the true value and predicted value:<br>
 **variable with normalize and transform in grayscale**<br>
@@ -140,6 +139,15 @@ Now we have the model and prediction for each variable so we have a relation bet
 
 **Variable with normalize, transform in grayscale, noise random, and smoothed.**<br>
 ![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/figures/figure(6).png)<br>
+
+This is a representation graph with a relation between predicted values and true values variable norm grayscale:
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/Predict%20gray%20norm.png)<br>
+
+The variable with a relation between predicted values and true values variable norm grayscale and noise random:
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/Predict%20gray%20norm%20noise.png)<br>
+
+The variable with a relation between predicted values and true values variable norm grayscale and smoothed:
+![colorful_picture](https://github.com/lucasfreire01/Recognition_iamges_labels/blob/main/reports/performance/Predict%20gray%20norm%20smoothad.png)<br>
 
 ## Conclusion
 I Liked so much to work with the GoogleNet architecture result so that I wasn't satisfied but the objective is to work and study this architecture, there are some ways to improve the score maybe replacing the architecture, using more pre-processing tools, doing a reverse way we did and reduce the random I think a good way is to use machine learning models to do it and finally to put more neurons in each layer in the neural networking model. If you arrived here thank you so much for seeing my project.
