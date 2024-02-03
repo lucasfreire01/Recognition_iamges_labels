@@ -11,21 +11,20 @@ class transformer_pipeline:
         self.X = X
         self.y = y
         self.cat = cat
-        self.modified_x_vector = None
-        self.modified_y_vector = None
 
     def encoding(self):
-        self.modified_y_vector = tf.keras.utils.to_categorical(self.y, self.cat)
+        return tf.keras.utils.to_categorical(self.y, self.cat)
 
     def normalization(self):
-        self.modified_x_vector = self.X / 255.0
+        _X = self.X / 255.0
+        return _X
 
-    def grayscale(self):
+    def grayscale(self, _X):
 
-        self.modified_x_vector = np.sum(self.X / 3, axis=3, keepdims=True)
+        return np.sum(_X / 3, axis=3, keepdims=True)
 
     def fit_transform(self):
-        self.normalization()
-        self.grayscale()
-        self.encoding()
-        return self.modified_x_vector, self.modified_y_vector
+        _NEW_X = self.normalization()
+        _RETURNING_X = self.grayscale(_X=_NEW_X)
+        _RETURNING_y = self.encoding()
+        return _RETURNING_X, _RETURNING_y
